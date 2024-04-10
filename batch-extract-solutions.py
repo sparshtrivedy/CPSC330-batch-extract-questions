@@ -11,6 +11,13 @@ import nbformat
 # I recommend downloading sets of 25-50 solutions at a time to avoid any issues with the script.
 # A note to TAs: Feel free to use and modify this script as you see fit. I hope it makes your life easier.
 
+# some variables to set before running the script
+final_answers = []
+directory_path = '/Users/sparshtrivedy/Downloads'
+cell_name = 'Solution_2_5'
+file_prefix = 'hw7_sol'
+output_file_name = 'answers.ipynb'
+
 def extract_answer_cell_for_specified_question(notebook_path, question, file):
     with open(notebook_path, 'r') as f:
         nb = nbformat.read(f, as_version=4)
@@ -22,7 +29,7 @@ def extract_answer_cell_for_specified_question(notebook_path, question, file):
             # if the question is found in the cell, add the cell to the answers list
             if question in cell.source:
                 # first append the cell that contains the file name so it is easy to track the source of the answer
-                cell.source = cell.source.replace('Solution_2_5', file)
+                cell.source = cell.source.replace(cell_name, file)
                 cells.append(cell)
                 # move to the next cell and keep adding to the answer until we reach the next question
                 cell_index = nb.cells.index(cell) + 1
@@ -49,13 +56,6 @@ def save_extracted_answers_into_output_file(extracted_answers, output_file):
                 nb.cells.append(nbformat.v4.new_markdown_cell(source=answer.source))
         nbformat.write(nb, f)
     return extracted_answers
-
-# some variables to set before running the script
-final_answers = []
-directory_path = '/Users/sparshtrivedy/Downloads'
-cell_name = 'Solution_2_5'
-file_prefix = 'hw7_sol'
-output_file_name = 'answers.ipynb'
 
 for root, dirs, files in os.walk(directory_path):
     for file in files:
