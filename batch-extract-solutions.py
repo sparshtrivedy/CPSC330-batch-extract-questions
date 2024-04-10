@@ -5,8 +5,7 @@ import nbformat
 # Date: 2024-03-10
 # script for UBC's CPSC 330.
 # This script extracts answers from the solutions of the homeworks and saves them in a separate ipynb file.
-# The script assumes that the solutions are in the same directory as the script and that the solutions are named as hwX_sol (Y).ipynb
-# where X is the homework number and Y is the download number.
+# The script assumes that the solutions are named as hwX_sol (Y).ipynb where X is the homework number and Y is the download number.
 # I recommend downloading the sample solution as hwX_sol.ipynb so thet every successive download is named as hwX_sol (1).ipynb, hwX_sol (2).ipynb, etc.
 # I recommend downloading sets of 25-50 solutions at a time to avoid any issues with the script.
 # A note to TAs: Feel free to use and modify this script as you see fit. I hope it makes your life easier.
